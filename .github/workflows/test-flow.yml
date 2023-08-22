@@ -21,25 +21,27 @@ on:
   workflow_dispatch:
     inputs: 
       RUN_DEPLOYMENT_1:
+        type: boolean
         description: 'Run Deployment 1'
         required: true
-        default: 'N'
+        default: false
       RUN_DEPLOYMENT_2:
+        type: boolean
         description: 'Run Deployment 2'
         required: true
-        default: 'N'
+        default: false
 
   # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   deployment_1:
-    if: github.event.inputs.RUN_DEPLOYMENT_1 == 'Y'
+    if: github.event.inputs.RUN_DEPLOYMENT_1
     runs-on: ubuntu-latest
     steps:
     - run: |
         echo conditional_deployment_1 executing - ${{ github.event.inputs.RUN_DEPLOYMENT_1 }}
 
   deployment_2:
-    if: github.event.inputs.RUN_DEPLOYMENT_2 == 'Y'
+    if: github.event.inputs.RUN_DEPLOYMENT_2
     runs-on: ubuntu-latest
     steps:
     - run: |
