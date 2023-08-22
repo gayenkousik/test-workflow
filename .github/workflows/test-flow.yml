@@ -19,19 +19,28 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs: 
+      RUN_DEPLOYMENT_1:
+        description: 'Run Deployment 1'
+        required: true
+        default: 'N'
+      RUN_DEPLOYMENT_2:
+        description: 'Run Deployment 2'
+        required: true
+        default: 'N'
 
   # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  conditional_deploy_1:
-    if: false == true
+  deployment_1:
+    if: ${{ github.event.inputs.RUN_DEPLOYMENT_1 }} == 'Y'
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo conditional_deploy_1 executing
+        echo conditional_deployment_1 executing
 
-  conditional_deploy_2:
-    if: true == true
+  deployment_2:
+    if: ${{ github.event.inputs.RUN_DEPLOYMENT_2 }} == 'Y'
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo conditional_deploy_2 executing
+        echo conditional_deployment_2 executing
