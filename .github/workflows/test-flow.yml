@@ -32,14 +32,14 @@ on:
   # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   deployment_1:
-    if: github.event.inputs.RUN_DEPLOYMENT_1
+    if: ${{ github.event.inputs.RUN_DEPLOYMENT_1 }}
     runs-on: ubuntu-latest
     steps:
     - run: |
         echo conditional_deployment_1 executing - ${{ github.event.inputs.RUN_DEPLOYMENT_1 }}
 
   deployment_2:
-    if: github.event.inputs.RUN_DEPLOYMENT_2
+    if: ${{ github.event.inputs.RUN_DEPLOYMENT_2 }}
     runs-on: ubuntu-latest
     steps:
     - run: |
