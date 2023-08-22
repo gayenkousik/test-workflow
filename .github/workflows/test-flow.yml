@@ -36,11 +36,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo conditional_deployment_1 executing
+        echo conditional_deployment_1 executing - ${{ github.event.inputs.RUN_DEPLOYMENT_1 }}
 
   deployment_2:
     if: ${{ github.event.inputs.RUN_DEPLOYMENT_2 }} == 'Y'
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo conditional_deployment_2 executing
+        echo conditional_deployment_2 executing - ${{ github.event.inputs.RUN_DEPLOYMENT_2 }}
