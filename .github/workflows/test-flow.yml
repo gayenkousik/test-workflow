@@ -24,12 +24,10 @@ on:
         type: boolean
         description: 'Run Deployment 1'
         required: true
-        default: false
       RUN_DEPLOYMENT_2:
         type: boolean
         description: 'Run Deployment 2'
         required: true
-        default: false
 
   # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
